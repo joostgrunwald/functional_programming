@@ -62,16 +62,15 @@ query4 :: [Person]
 query4 = filter (inTwenties) students
 
 --helper function
-gettotalage :: [Person] -> Integer
-gettotalage [] = 0
-gettotalage (x:xs) = age x + gettotalage xs
+getAge :: Person -> Integer
+getAge (_, a, _, _, _, _)  =  a
 
-query5 :: Integer
-query5 = fromIntegral (gettotalage students) `div` fromIntegral (length students)
-
---helper function
-favcourseFP :: Person -> Bool
-favcourseFP (_, _, c, _, _, _)  =  c == "Functional Programming"
+--query5 :: [Person] -> Age
+query5 = sum(map (getAge) students)
 
 query6 :: [Person]
-query6 = map (promotestudent) (filter (favcourseFP) students)
+query6 = _TODO "promote the students whose favourite course is Functional Programming"
+
+-- if you have removed all TODO's, remove these lines
+_TODO :: String -> a
+_TODO msg = error ("TODO: " ++ msg)
