@@ -13,7 +13,7 @@ eval (Lit x) _ = Just x
 eval (Add x y) z = (+) <$> eval x z <*> eval y z
 eval (Mul x y) z = (*) <$> eval x z <*> eval y z
 eval (Sub x y) z = (-) <$> eval x z <*> eval y z
-eval (Div x y) z = if (eval y z) == Just 0 then Nothing else Just 3
+eval (Div x y) z = if (eval y z) == Just 0 then Nothing else Just 3 --TODO replace just 3 with actual division
 eval (VarX) z = Just z
 
 --or:
